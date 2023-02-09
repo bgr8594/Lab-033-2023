@@ -33,7 +33,7 @@ export class PresupuestoPage implements OnInit {
       this.errResultados = 'success';
       this.resultados='Gasto seleccionado: '+this.selectedValue+' \nMonto: '+this.monto+'\n'+'Descripcion: '+this.descripcion;
       let gasto:Gasto = {
-        descripcion: this.selectedValue,
+        descripcion: this.descripcion,
         tipo: this.selectedValue,
         monto: this.monto
       }

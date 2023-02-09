@@ -1,12 +1,11 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {Gasto}from '../interface/gasto';
-
 @Injectable({
-    provideIn: 'root'
+  providedIn: 'root'
 })
-
 export class GastoService {
-    gastos: Gasto[]=[];
+
+  gastos: Gasto[]=[];
     constructor(){ }
     agregar(gasto:Gasto){
         if(this.gastos.length==0){
@@ -18,7 +17,7 @@ export class GastoService {
     }
     borrarGasto(gasto: Gasto){
         this.gastos =
-        this.gastos.filter((gasto)=>gasto.id!=(gasto.id!=null?gasto.id:0));
+        this.gastos.filter((g)=>g.id!=(gasto.id!=null?gasto.id:0));
     }
     getGastos(){
         return this.gastos;
