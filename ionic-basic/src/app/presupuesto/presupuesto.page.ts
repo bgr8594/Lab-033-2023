@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Gasto } from '../interface/gasto';
- import { GastoService } from '../service/gasto.service';
+import { GastoService } from '../service/gasto.service';
 
 @Component({
   selector: 'app-presupuesto',
@@ -32,11 +32,11 @@ export class PresupuestoPage implements OnInit {
   cambioValor(value: any){
     console.log(value);
   }
- 
+
   guardar(){
     this.resultados ="";
-    if(this.monto!=null && this.selectedValue!=null && this.descripcion!= null && this.monto > 0
-       && this.descripcion!= ''){
+    if(this.monto!=null && this.selectedValue!=null && this.descripcion!= null
+      && this.monto > 0 && this.descripcion!= ''){
       this.errResultados = 'success';
       this.resultados = 'Gasto seleccionado: '+this.selectedValue+' \nMonto: '+this.monto+'\n'+
       'Descricion: '+this.descripcion;
