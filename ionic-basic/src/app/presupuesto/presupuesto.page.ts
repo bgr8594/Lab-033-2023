@@ -22,7 +22,7 @@ export class PresupuestoPage implements OnInit {
   ngOnInit() {
   }
   customPopoverOptions: any = {
-    header: 'Seleccion de gasots',
+    header: 'Seleccion de gastos',
     subHeader: 'Seleccione el tipo de gasto',
     message: 'Solo seleccione un tipo de gasto'
   };
@@ -48,7 +48,7 @@ export class PresupuestoPage implements OnInit {
     }
     else{
       this.errResultados = 'danger';
-      this.resultados ="No a completado los campos del formulario";
+      this.resultados ="No ha completado los campos del formulario";
     }
   }
 

@@ -4,17 +4,15 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const newLocal = './presupuesto/presupuesto.module';
 const routes: Routes = [
   {
-    path: 'presupuesto',  
+    path: 'presupuesto',
+    loadChildren: () => import('./presupuesto/presupuesto.module').then( m => m.PresupuestoPageModule)
   },
   {
     path: '',
     redirectTo: 'presupuesto',
     pathMatch: 'full'
-  },
-  {
-    path: 'presupuesto',
-    loadChildren: () => import('./presupuesto/presupuesto.module').then( m => m.PresupuestoPageModule)
-  },
+  }
+ 
 
 ];
 
