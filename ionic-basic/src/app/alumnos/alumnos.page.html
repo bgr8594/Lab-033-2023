@@ -19,7 +19,7 @@
       </ion-item>
       <ion-item>
           <ion-button type="button" (click)="guardar()">{{estado}}</ion-button>
-          <ion-button *ngIf="estado==='actualizar'" type="button" (click)="cancelar()"></ion-button>
+          <ion-button *ngIf="estado==='actualizar'" type="button" (click)="cancelar()">Cancelar</ion-button>
           <ion-text *ngIf="error" color="danger">    
               <h6>Debe ingresar nombre y matricula para {{estado}}</h6>
           </ion-text>

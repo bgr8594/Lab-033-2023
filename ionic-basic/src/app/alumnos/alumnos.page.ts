@@ -37,9 +37,9 @@ export class AlumnosPage implements OnInit {
           nombre: this.nombre,
           matricula: this.matricula
       };
-      if (this.estado ==='actualizr'){
+      if (this.estado ==='actualizar'){
           alumno.id= this.idActualizar;
-          this.alumnos = this.alumnoService.actualiza(alumno);
+          this.alumnos = this.alumnoService.actualizar(alumno);
       }
       if(this.estado==='guardar'){
           this.alumnoService.agregarAlumno(alumno);
