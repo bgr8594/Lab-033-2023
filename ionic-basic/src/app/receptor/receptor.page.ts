@@ -13,7 +13,17 @@ export class ReceptorPage implements OnInit {
   constructor(private envioReceptorService: EnvioReceptorService) { }
 
   ngOnInit() {
-    this.envioReceptorSer
+    this.envioReceptorService.$getObjectSource.subscribe(data=>{
+      console.log(data);
+      this.user=data;
+    }).unsubscribe();
+    this.envioReceptorService.$getListSource.subscribe(data=>{
+      console.log(data);
+      this.list=data;
+    }).unsubscribe();
+    this.envioReceptorService.getPersonajes().subscribe((response: any)=>{
+      this.personajes=response.results;
+    })
   }
 
 }
