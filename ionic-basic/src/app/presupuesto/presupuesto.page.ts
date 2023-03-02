@@ -57,3 +57,4 @@ export class PresupuestoPage implements OnInit {
     this.gastosService.borrarGasto(gasto);
     this.gastosList = this.gastosService.getGastos();
   }
+  }
