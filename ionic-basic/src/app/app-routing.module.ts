@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-const newLocal = './presupuesto/presupuesto.module';
 const routes: Routes = [
   {
-    path: 'presupuesto',
-    loadChildren: () => import('./presupuesto/presupuesto.module').then( m => m.PresupuestoPageModule)
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
-    redirectTo: 'presupuesto',
+    redirectTo: 'home',
     pathMatch: 'full'
-  }
- 
-
+  },
 ];
 
 @NgModule({
