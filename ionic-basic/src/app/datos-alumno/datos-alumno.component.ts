@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
+import { Alumno } from './interface/alumno'
 @Component({
   selector: 'app-datos-alumno',
   templateUrl: './datos-alumno.component.html',
@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatosAlumnoComponent implements OnInit {
 
+  @Input() alumnosList:Alumno[] =[];
+  @Output() eliminar: any = new EventEmitter<Alumno[]>();
+  @Output() editar:  any = new EventEmitter<number>();
+  
   constructor() { }
 
   ngOnInit() {}

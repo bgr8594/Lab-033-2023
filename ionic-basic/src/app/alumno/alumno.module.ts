@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
 import { AlumnoPageRoutingModule } from './alumno-routing.module';
-
-import { AlumnoPage } from './alumno.page';
+import { AlumnosPage } from './alumno.page';
+import { DatosAlumnoComponent } from './datos-alumno.component';
 
 @NgModule({
   imports: [
@@ -15,6 +13,6 @@ import { AlumnoPage } from './alumno.page';
     IonicModule,
     AlumnoPageRoutingModule
   ],
-  declarations: [AlumnoPage]
+  declarations: [AlumnosPage,DatosAlumnoComponent]
 })
 export class AlumnoPageModule {}
