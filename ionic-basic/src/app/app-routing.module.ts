@@ -12,7 +12,11 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import(newLocal).then( m => m.HomePageModule)
-  },
+  },  {
+    path: 'alumno',
+    loadChildren: () => import('./alumno/alumno.module').then( m => m.AlumnoPageModule)
+  }
+
 ];
 
 @NgModule({

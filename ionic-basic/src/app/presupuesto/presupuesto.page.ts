@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Gasto } from './presupuesto/gasto';
-import { GastoService } from '/presupuesto/gasto.service';
+import { Gasto } from './gasto';
+import { GastoService } from './gasto.service';
 
 @Component({
   selector: 'app-presupuesto',
@@ -48,7 +48,7 @@ export class PresupuestoPage implements OnInit {
     }
     else{
       this.errResultados = 'danger';
-      this.resultados ="No ha completado los campos del formulario";
+      this.resultados ="No se han completado los campos del formulario";
     }
   }
 
