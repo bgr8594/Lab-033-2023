@@ -2,16 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { AlumnoPageRoutingModule } from './alumno-routing.module';
 import { AlumnosPage } from './alumno.page';
-import { DatosAlumnoComponent } from './datos-alumno.component';
+import { DatosAlumnoComponent } from '../datos-alumno/datos-alumno.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AlumnoPageRoutingModule
+    AlumnoPageModule
   ],
   declarations: [AlumnosPage,DatosAlumnoComponent]
 })
