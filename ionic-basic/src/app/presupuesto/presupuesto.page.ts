@@ -47,16 +47,21 @@ export class PresupuestoPage implements OnInit {
     }
       this.gastosService.agregar(gasto);
       this.gastosList = this.gastosService.getGastos();
+
+      this.monto = 0;
+      this.descripcion = "";
     }
     else{
       this.errResultados = 'danger';
       this.resultados ="No a completado los campos del formulario";
     }
   }
-
   borrarGasto(gasto: Gasto){
     this.gastosService.borrarGasto(gasto);
-    this.gastosList = this.gastosService.getGastos();
+    const index = this.gastosList.indexOf(gasto);
+    if (index > -1) {
+      this.gastosList.splice(index, 1);
+    }
   }
 
 }
