@@ -8,7 +8,7 @@ import { AlumnosPageRoutingModule } from './alumnos-routing.module';
 
 import { AlumnosPage } from './alumnos.page';
 
-import { DatosAlumnoComponent } from '../componentes/datos-alumno.component';
+import { DatosAlumnoComponent } from 'src/app/componentes/datos-alumno/datos-alumno.component';
 
 @NgModule({
   imports: [
