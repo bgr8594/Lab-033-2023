@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Gasto } from './gasto';
+import { Gasto } from '../interface/gasto';
 
 @Injectable({
   providedIn: 'root'
