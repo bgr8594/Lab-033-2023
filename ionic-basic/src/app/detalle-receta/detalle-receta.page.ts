@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Receta } from '../interface/receta';
 import { RecetaService } from '../service/receta.service';
 
 
