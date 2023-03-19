@@ -14,6 +14,7 @@ export class DetalleRecetaPage implements OnInit {
   idReceta: number = 0;
   receta: any;
 
+
   constructor(
     private recetaService: RecetaService,
     private router: Router,
@@ -26,4 +27,5 @@ export class DetalleRecetaPage implements OnInit {
       this.receta = this.recetaService.getReceta(this.idReceta);
     });
   }
+
 }
