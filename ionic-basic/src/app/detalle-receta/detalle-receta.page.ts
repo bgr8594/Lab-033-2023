@@ -1,5 +1,4 @@
 
-@@ -0,0 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Receta } from '../interface/receta';
