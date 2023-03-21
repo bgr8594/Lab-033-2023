@@ -22,7 +22,8 @@ const routes: Routes = [
   {
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
-  },  {
+  },
+  {
     path: 'receptor',
     loadChildren: () => import('./receptor/receptor.module').then( m => m.ReceptorPageModule)
   },
@@ -34,7 +35,10 @@ const routes: Routes = [
     path: 'receta',
     loadChildren: () => import('./receta/receta.module').then( m => m.RecetaPageModule)
   },
-
+  {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
+  },
  
 
 ];
