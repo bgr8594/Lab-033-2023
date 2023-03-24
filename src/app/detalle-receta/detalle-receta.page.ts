@@ -6,7 +6,7 @@ import { RecetaService } from "../service/receta.service";
 @Component({
   selector: "app-detalle-receta",
   templateUrl: "./detalle-receta.page.html",
-  styleUrls: ["./detalle-receta.page.scss"],
+  styleUrls: [],
 })
 export class DetalleRecetaPage implements OnInit {
   idReceta: number = 0;
