@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import{environment} from 'src/environments/environment';
 import {initializeApp} from "firebase/app";
-import {Auth, createUserWithEmailandPassword, signInWithEmailAndPassword} from 'firebase/auth';
+import {Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
 import{getAuth, onAuthStateChanged} from "firebase/auth";
 import{User} from '../interface/user';
 const firebaseApp = initializeApp(environment.firebaseConfig);
@@ -31,6 +31,6 @@ export class AutService {
     return signInWithEmailAndPassword(this.auth, user.email, user.password);
    }
    onRegister(user: User): Promise<any>{
-    return createUserWithEmailandPassword(this.auth, user.email, user.password);
+    return createUserWithEmailAndPassword(this.auth, user.email, user.password);
    }
 }

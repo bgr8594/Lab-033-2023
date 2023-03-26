@@ -15,13 +15,8 @@ export class FloatMenuComponent implements OnInit, OnDestroy {
   public isLoged: any=false;
   public subscription: Subscription = new Subscription();
   datosMenu: Menu[]=[
-    {nombre: 'home',enlace:'/home',icono:'home-outline'},
-    {nombre: 'Alumnos',enlace:'/alumnos',icono:'school-outline'},
-    {nombre: 'Recetas',enlace:'/receta',icono:'restaurant-outline'},
-    {nombre: 'Presupuesto',enlace:'/presupuesto',icono:'cash-outline'},
-    {nombre:'inicio',enlace:'/inicio',icono:'navigate-outline'},
-    {nombre:'Tabs',enlace:'/tabs',icono:'folder-outline'}
-
+    {nombre: 'login',enlace:'/login',icono:'log-in-outline'},
+    {nombre: 'logout',enlace:'/home',icono:'log-out-outline'},
   ];
 
   constructor(
@@ -40,7 +35,7 @@ export class FloatMenuComponent implements OnInit, OnDestroy {
      }
 
   ngOnInit() {}
-  navegar(link: string){
+  navegar(link: string, titleMenu: string){
     this.titleMenu=titleMenu;
     this.router.navigate([link]);
   }

@@ -1,8 +1,8 @@
 const firebaseConfig ={
-apiKey: "AIzaSyCTaarRutdlhP3zjOhBlc6FoEas0UEnSBE",
-authDomain: "laboratorio-033.firebaseapp.com",
-projectId: "laboratorio-033",
-storageBucket: "laboratorio-033.appspot.com",
-messageinSenderId: "825082215711",
-appId:"1:825082215711:web:2e63f0298f18cc8facc42a"
+ apiKey: "AIzaSyC3svw9c-BPS4HuUEkHb4vrJ61KaH-_H4E",
+  authDomain: "lab-033-2023.firebaseapp.com",
+  projectId: "lab-033-2023",
+  storageBucket: "lab-033-2023.appspot.com",
+  messagingSenderId: "358165293035",
+  appId: "1:358165293035:web:7804cce35dfdfd75235bae"
 };
