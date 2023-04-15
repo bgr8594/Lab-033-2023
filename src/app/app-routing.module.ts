@@ -69,6 +69,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./register/register.module').then((m) => m.RegisterPageModule),
   },
+  {
+    path: 'destinos',
+    loadChildren: () =>
+      import('./destinos/destinos.module').then((m) => m.DestinosPageModule),
+    canActivate: [AutGuardGuard],
+  },
 ];
 
 @NgModule({

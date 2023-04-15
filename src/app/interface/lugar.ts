@@ -1,19 +1,13 @@
 export class Lugar {
-    nombre: string;
+  nombre: string;
+  ubicacion?: any = { latitud: '', longitud: '' };
 
-    ubicacion?: any = {latitud:'', longitud:''};
+  constructor() {
+    this.nombre = '';
+  }
 
-    constructor(){
-
-        this.nombre='';
-
-    }
-
-    public setUbicacion(latitud: string, Longiutd: string){
-
-        this.ubicacion.latitud= latitud;
-
-        this.ubicacion.longitud = Longiutd;
-
-    }
+  public setUbicacion(latitud: string, Longiutd: string) {
+    this.ubicacion.latitud = latitud;
+    this.ubicacion.longitud = Longiutd;
+  }
 }

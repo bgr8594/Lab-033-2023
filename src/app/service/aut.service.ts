@@ -10,7 +10,6 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { User } from '../interface/user';
 import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
 import { Lugar } from '../interface/lugar';
-import { getDatabase } from 'firebase/database';
 
 const firebaseApp = initializeApp(environment.firebaseConfig);
 
@@ -39,11 +38,11 @@ export class AutService {
   getStateAuth() {
     return this.auth;
   }
-  //login
+
   onLogin(user: User): Promise<any> {
     return signInWithEmailAndPassword(this.auth, user.email, user.password);
   }
-  //register
+
   onRegister(user: User): Promise<any> {
     return createUserWithEmailAndPassword(this.auth, user.email, user.password);
   }
