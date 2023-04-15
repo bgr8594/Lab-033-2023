@@ -20,12 +20,12 @@ export class AlumnosPage implements OnInit {
 
   ngOnInit() {
     this.alumnoService.setAlumnos([
-      {id:1, nombre: 'Porfirio Diaz',
-      matricula: '652547'},
-      {id:2, nombre: 'Diego Maradona',
-      matricula: '998742'},
-      {id:3, nombre: 'Enrique Segoviano',
-      matricula: '554689'}
+      {id:1, nombre: 'Gerardo Martinez',
+      matricula: '745589'},
+      {id:2, nombre: 'Isela Rodriguez',
+      matricula: '855449'},
+      {id:3, nombre: 'Estenban',
+      matricula: '0021554'}
     ]);
 
     this.alumnos = this.alumnoService.getAlumos();
