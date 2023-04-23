@@ -10,28 +10,28 @@ const routes: Routes = [
     children:[
       {
         path:'alumnos',
-        loadChildren : ()=> import('../alumnos/alumnos.module').then(m=>m.AlumnosPageModule)
+        loadChildren : () => import('../alumnos/alumnos.module').then(m=>m.AlumnosPageModule)
       }
       ,
       {
         path: 'recetas',
-        loadChildren:()=>import('../receta/receta.module').then(m=>m.RecetaPageModule)
+        loadChildren: () => import('../receta/receta.module').then(m=>m.RecetaPageModule)
       },
       {
-        path:'presupuesto',
-        loadChildren:()=>import('../presupuesto/presupuesto.module').then(m=>m.PresupuestoPageModule)
+        path: 'presupuesto',
+        loadChildren: () => import('../presupuesto/presupuesto.module').then(m=>m.PresupuestoPageModule)
       },
       {
         path:'',
-        redirectTo:'/tabs/alumnos',
-        pathMatch:'full'
+        redirectTo: '/main/tabs/alumnos',
+        pathMatch: 'full'
       }
     ]
   },
   {
-    path:'',
-    redirectTo:'/tabs/alumnos',
-    pathMatch:'full'
+    path: '',
+    redirectTo: '/main/tabs/alumnos',
+    pathMatch: 'full'
   }
 ];
 

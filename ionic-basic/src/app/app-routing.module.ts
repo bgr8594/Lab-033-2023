@@ -13,6 +13,9 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+	path:'main',
+	children:[
+		{
     path: 'presupuesto',
     loadChildren: () => import('./presupuesto/presupuesto.module').then( m => m.PresupuestoPageModule),
     canActivate: [AutGuardGuard]
@@ -48,21 +51,21 @@ const routes: Routes = [
     canActivate:[AutGuardGuard]
   },
   {
+        path: 'destinos',
+        loadChildren: () => import('./destinos/destinos.module').then( m => m.DestinosPageModule),
+        canActivate: [AutGuardGuard]
+      }
+    ],
+    canActivate: [AutGuardGuard]
+  },
+  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  },
-  {
-    path: 'destinos',
-    loadChildren: () => import('./destinos/destinos.module').then( m => m.DestinosPageModule),
-    canActivate: [AutGuardGuard]
-  },
-
-
-
+  }
 ];
 
 @NgModule({
