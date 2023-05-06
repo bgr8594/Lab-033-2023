@@ -11,7 +11,9 @@ export const environment = {
   storageBucket: "lab-033-2023.appspot.com",
   messagingSenderId: "358165293035",
   appId: "1:358165293035:web:7804cce35dfdfd75235bae"
-  }
+  },
+  apiKeyMaps : 'AIzaSyDa2ba8bnGz9I2nUNePA69oxUwWO4neIBE'
+
 };
 
 /*
