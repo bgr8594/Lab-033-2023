@@ -20,16 +20,19 @@ const routes: Routes = [
         loadChildren: () => import('./presupuesto/presupuesto.module').then( m => m.PresupuestoPageModule),
         canActivate: [AutGuardGuard]
       },
+
       {
         path: 'alumnos',
         loadChildren: () => import('./alumnos/alumnos.module').then( m => m.AlumnosPageModule),
         canActivate: [AutGuardGuard]
       },
+
       {
         path: 'inicio',
         loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule),
         canActivate: [AutGuardGuard]
       },
+
       {
         path: 'receptor',
         loadChildren: () => import('./receptor/receptor.module').then( m => m.ReceptorPageModule),
@@ -54,6 +57,10 @@ const routes: Routes = [
         path: 'destinos',
         loadChildren: () => import('./destinos/destinos.module').then( m => m.DestinosPageModule),
         canActivate: [AutGuardGuard]
+      },
+      {
+        path: 'destinos-api',
+        loadChildren: () => import('./destinos-api/destinos-api.module').then( m => m.DestinosApiPageModule)
       }
     ],
     canActivate: [AutGuardGuard]
