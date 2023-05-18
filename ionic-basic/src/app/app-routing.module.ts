@@ -17,8 +17,7 @@ const routes: Routes = [
     children: [
       {
         path: 'presupuesto',
-        loadChildren: () => import('./presupuesto/presupuesto.module').then( m => m.PresupuestoPageModule),
-        canActivate: [AutGuardGuard]
+        loadChildren: () => import('./presupuesto/presupuesto.module').then( m => m.PresupuestoPageModule)
       },
 
       {
