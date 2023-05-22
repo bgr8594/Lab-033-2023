@@ -12,6 +12,8 @@ export const environment = {
     messagingSenderId: '499930703859',
     appId: '1:499930703859:web:7e75ded59294b3bf361486',
   },
+  // No puedo generar mi propia api key de google maps
+  apiKeyMaps: 'AIzaSyDa2ba8bnGz9I2nUNePAk6SxUwWO4neIBE',
 };
 
 /*
