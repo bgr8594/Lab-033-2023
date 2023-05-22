@@ -2,9 +2,9 @@
     <ion-toolbar color="primary">
         <ion-title>Destinos</ion-title>
     </ion-toolbar>
-  </ion-header>
-  
-  <ion-content padding>
+</ion-header>
+
+<ion-content padding>
     <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
         <ion-item>
             <ion-label>
@@ -16,11 +16,11 @@
             </ion-text>
         </ion-item>
         <ion-item-divider>
-          <ion-button type="submit" type="submit" [disabled]="!(ionicForm.valid)" color="primary" size="larger">{{estado}}</ion-button>
-          <ion-button *ngIf="editando" type="button" color="danger" size="larger" (click)="cancelarEdicion()">Cancelar</ion-button>
+            <ion-button type="submit" type="submit" [disabled]="!(ionicForm.valid)" color="primary" size="larger">{{estado}}</ion-button>
+            <ion-button *ngIf="editando" type="button" color="danger" size="larger" (click)="cancelarEdicion()">Cancelar</ion-button>
         </ion-item-divider>
     </form>
-  
+
     <ion-item-divider></ion-item-divider>
     <ion-grid>
         <ion-row>
@@ -35,10 +35,10 @@
                 </ion-text>
             </ion-col>
             <ion-col>
-  
+
             </ion-col>
             <ion-col>
-  
+
             </ion-col>
         </ion-row>
         <ion-row *ngFor="let lugar of destinos">
@@ -48,17 +48,18 @@
                 </ion-text>
             </ion-col>
             <ion-col>
-                <ion-text>
-                    En construccion
-                    <!--{{lugar.ubicacion}}-->
+                <ion-text *ngIf="lugar.latitud">
+                    latitud: {{lugar.latitud}} ,longitud{{lugar.longitud}}
+                </ion-text>
+                <ion-text *ngIf="!lugar.latitud">
                 </ion-text>
             </ion-col>
             <ion-col>
-              <ion-button color="primary" (click)="editarLugar(lugar.id, lugar)">editar</ion-button>
-          </ion-col>
-          <ion-col>
-              <ion-button color="danger" (click)="eliminarLugar(lugar.id)">borrar</ion-button>
-          </ion-col>
+                <ion-button color="primary" (click)="editarLugar(lugar.id, lugar)">editar</ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-button color="danger" (click)="eliminarLugar(lugar.id)">borrar</ion-button>
+            </ion-col>
         </ion-row>
     </ion-grid>
-  </ion-content>
+</ion-content>
