@@ -6,6 +6,7 @@ import { AutService } from '../service/aut.service';
 import { Router } from '@angular/router';
 import { MenuServiceService } from '../service/menu-service.service';
 import {
+  FormGroup,
   FormBuilder,
   Validators,
   FormControl,
@@ -40,7 +41,7 @@ export class LoginPage implements OnInit {
       .then((user: any) => {
         if (user != null && user.code == undefined) {
           console.log('Successfully logged in!');
-          this.router.navigate(['/presupuesto']);
+          this.router.navigate(['/main/presupuesto']);
         } else {
           if (user.code) {
             if (

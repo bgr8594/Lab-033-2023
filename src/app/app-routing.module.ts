@@ -72,6 +72,13 @@ const routes: Routes = [
           ),
         canActivate: [AutGuardGuard],
       },
+      {
+        path: 'destinos-api',
+        loadChildren: () =>
+          import('./destinos-api/destinos-api.module').then(
+            (m) => m.DestinosApiPageModule
+          ),
+      },
     ],
     canActivate: [AutGuardGuard],
   },
