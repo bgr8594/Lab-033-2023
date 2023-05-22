@@ -14,9 +14,9 @@ const routes: Routes = [
           import('../alumnos/alumnos.module').then((m) => m.AlumnosPageModule),
       },
       {
-        path: 'recetas',
+        path: 'galeria',
         loadChildren: () =>
-          import('../receta/receta.module').then((m) => m.RecetaPageModule),
+          import('../galeria/galeria.module').then((m) => m.GaleriaPageModule),
       },
       {
         path: 'presupuesto',
