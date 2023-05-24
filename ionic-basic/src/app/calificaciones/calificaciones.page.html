@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Calificaciones
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]="calificacionService.altaForm">
+        <ion-item>
+          <ion-label>Materia</ion-label>
+          <ion-input formControlName="materia" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Calificación</ion-label>
+          <ion-input type="number" formControlName="calificacion" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Aprobado</ion-label>
+          <ion-checkbox formControlName="aprobado"></ion-checkbox>
+        </ion-item>
+
+        <ion-button expand="block" (click)="agregarCalificacion()">Agregar</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="calificaciones.length > 0">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>Materia</ion-col>
+          <ion-col>Calificación</ion-col>
+          <ion-col>Aprobado</ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+        <ion-row *ngFor="let calificacion of calificaciones; let i = index">
+          <ion-col>{{ calificacion.materia }}</ion-col>
+          <ion-col>{{ calificacion.calificacion }}</ion-col>
+          <ion-col>{{ calificacion.aprobado ? 'Aprobado' : 'Reprobado' }}</ion-col>
+          <ion-col>
+            <ion-button (click)="eliminarCalificacion(i)">Eliminar</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
