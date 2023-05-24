@@ -2,6 +2,7 @@
   "name": "ionic-basic",
   "version": "0.0.1",
   "author": "Ionic Framework",
+  
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
@@ -19,12 +20,14 @@
     "@angular/platform-browser": "^15.0.0",
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
+    "@capacitor/android": "^5.0.4",
     "@capacitor/app": "4.1.1",
     "@capacitor/camera": "^5.0.2",
     "@capacitor/core": "4.6.2",
     "@capacitor/filesystem": "^5.0.2",
     "@capacitor/geolocation": "^5.0.2",
     "@capacitor/haptics": "4.1.0",
+    "@capacitor/ios": "^5.0.4",
     "@capacitor/keyboard": "4.1.1",
     "@capacitor/preferences": "^5.0.2",
     "@capacitor/status-bar": "4.1.1",
@@ -69,4 +72,5 @@
     "typescript": "~4.8.4"
   },
   "description": "An Ionic project"
+  
 }
