@@ -1,7 +1,7 @@
-export {};
+export { };
 
 declare global {
-  interface Window{
-    mapInit: any
-  }
+    interface Window {
+        mapInit: any
+    }
 }
