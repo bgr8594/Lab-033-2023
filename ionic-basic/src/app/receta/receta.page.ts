@@ -21,4 +21,5 @@ export class RecetaPage implements OnInit {
   irDetalleReceta(id: number){
     this.router.navigate([`main/detalle-receta/${id}`]);
   }
+
 }

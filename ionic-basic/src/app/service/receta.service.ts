@@ -8,65 +8,31 @@ export class RecetaService {
 
   recetas: Receta[]=[
     {
-      id: 1, 
-      nombre: 'Pizza', 
-      image: 'https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2017/04/pizzapepperoni0.jpg',
-      ingredientes: ["queso","salsa", "peperoni", "harina", "especies","sal"]
+      id: 1,
+      nombre: 'Enchiladas suizas',
+      image: 'https://assets.unileversolutions.com/recipes-v2/179095.jpg',
+      ingredientes: ['8 tortillas de maíz', '2 pechugas de pollo cocidas y deshebradas', '1 taza de crema', '1 taza de queso manchego rallado', '1 taza de salsa verde', 'Aceite de maíz', 'Sal al gusto']
     },
     {
-      id: 2, 
-      nombre: 'Chop suey de pollo', 
-      image: 'https://images.aws.nestle.recipes/resized/b87c22a3bd854277162d8389432399f8_chop_suey_400_1200_600.jpg',
-      ingredientes: ['2 Cucharadas de Aceite de ajonjolí',
-      '1/2 Cebolla fileteada',
-      '1 Diente de Ajo picado finamente',
-      '400 Gramos de Pechuga de pollo cortada en cubos',
-      '1 Pimiento morrón rojo cortado en bastones',
-      '1 Taza de Brócoli cocido y cortado en ramilletes pequeños',
-      '1/2 Taza de Apio cortado en medias lunas',
-      '2 Zanahorias cortadas en tiras',
-      '2 Tazas de Germen de soya',
-      '1 Calabaza cortada en tiras',
-      '1 Cucharada de Sal con ajo en polvo',
-      '5 Cucharadas de Salsa de Soya MAGGI']
+      id: 2,
+      nombre: 'Arroz con camarones',
+      image: 'https://cdn7.kiwilimon.com/recetaimagen/26250/23265.jpg',
+      ingredientes: ['1 libra de camarones pelados y desvenados', '2 tazas de arroz', '4 tazas de agua', '1 pimiento rojo cortado en cubos pequeños', '1 cebolla mediana picada', '3 dientes de ajo picados', '3 cucharadas de aceite de oliva', 'Sal y pimienta al gusto']
     },
     {
-      id: 3, 
-      nombre: 'Pollo a la mexicana', 
-      image: 'https://d1uz88p17r663j.cloudfront.net/resized/08d45a55fe49e611abde012a9b72d8bb_POLLO_A_LA_MEXICANA_150_1200_600.jpg',
-      ingredientes: [
-        '1/2 Cebolla asada'
-,'2 Dientes de Ajo asados'
-,'4 Jitomates asados'
-,'1/2 Taza de Agua'
-,'2 Cubos de Concentrado de Tomate con Pollo CONSOMATE'
-,'2 Cucharadas de Aceite de maíz'
-,'1/2 Cebolla fileteada'
-,'5 Muslos o piernas de pollo cocidos'
-,'3 Jitomates cortados en cubos pequeños'
-,'2 Chiles jalapeño cortados en tiras'
-,'2 Ramitas de Cilantro fresco desinfectadas y picadas finamente'
-      ]
+      id: 3,
+      nombre: 'Salmón a la parrilla con salsa de limón y eneldo',
+      image: 'https://www.daisybrand.com/wp-content/uploads/2019/12/GRILLED-SALMON-W-LEMON-DILL-SAUCE-770x628.jpg',
+      ingredientes: ['4 filetes de salmón', '2 limones', '2 cucharadas de eneldo fresco picado', '3 dientes de ajo picados', '3 cucharadas de aceite de oliva', 'Sal y pimienta al gusto']
     },
     {
-      id: 4, 
-      nombre: 'Paletas de fresa con chamoy', 
-      image: 'https://images.aws.nestle.recipes/resized/f1b3167c3cff6274361a3f7a87974be2_paletas_de_fresa_con_chamoy_1200_600.jpg',
-      ingredientes: [
-        '2 Tazas de Fresas congeladas'
-        ,'1 1/2 Tazas de Agua'
-        ,'1/2 Taza de Azúcar'
-        ,'8 Vasos de plástico (4 oz c/u)'
-        ,'8 Vasos de plástico (1 oz c/u)'
-        ,'8 Palitos de madera para paleta'
-        ,'1/2 Taza de Concentrado de jamaica'
-        ,'4 Cucharadas de Chile con limón en polvo'
-        ,'1 Cucharada de Jugo MAGGI'
-        ,'1/4 Taza de Chamoy líquido'
-
-      ]
+      id: 4,
+      nombre: 'Ensalada de aguacate y camarones',
+      image: 'https://scm-assets.constant.co/scm/unilever/e9dc924f238fa6cc29465942875fe8f0/b3e7187b-b0ab-4ddb-8423-2dcd3396c18b.jpg',
+      ingredientes: ['1 libra de camarones pelados y desvenados', '2 aguacates cortados en cubos', '1 taza de maíz dulce', '1 pimiento rojo cortado en cubos pequeños', '1 cebolla mediana picada', '2 dientes de ajo picados', '3 cucharadas de aceite de oliva', 'Sal y pimienta al gusto']
     }
   ];
+  
 
   constructor() { }
 

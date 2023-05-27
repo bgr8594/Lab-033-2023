@@ -19,14 +19,7 @@ export class AlumnosPage implements OnInit {
   constructor(private alumnoService: AlumnoService) { }
 
   ngOnInit() {
-    this.alumnoService.setAlumnos([
-      {id:1, nombre: 'Gerardo Martinez',
-      matricula: '745589'},
-      {id:2, nombre: 'Isela Rodriguez',
-      matricula: '855449'},
-      {id:3, nombre: 'Estenban',
-      matricula: '0021554'}
-    ]);
+
 
     this.alumnos = this.alumnoService.getAlumos();
     this.estado ='guardar';
@@ -42,15 +35,31 @@ export class AlumnosPage implements OnInit {
       nombre: this.nombre,
       matricula: this.matricula
     };
+
+    let i;
+    console.log(this.idActualizar);
+    for(i=0;i<this.idActualizar;i++){
+      if(this.alumnoService.getAlumos()[i].matricula == this.matricula){
+        this.error = true;
+        return;
+      }
+    }
+
+
     if (this.estado ==='actualizar'){
+      console.log(alumno.id)
       alumno.id = this.idActualizar;
       this.alumnos = this.alumnoService.actualiza(alumno);
+      
     }
     if(this.estado === 'guardar'){
       this.alumnoService.agregarAlumno(alumno);
       this.alumnos = this.alumnoService.getAlumos();
+      this.idActualizar++;
     }
     this.cancelar();
+    
+    
   }
 
   public cancelar(){

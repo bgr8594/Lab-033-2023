@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../interface/user';
 import { ModalErrorComponent } from '../componentes/modal-error.component';
-import { ModalController } from '@ionic/angular';
+import { ModalController ,LoadingController} from '@ionic/angular';
 import { AutService } from '../service/aut.service';
 import { Router } from '@angular/router';
 import { MenuServiceService } from '../service/menu-service.service';
-import {FormGroup, FormBuilder, Validators, FormControl, AbstractControl} from '@angular/forms';
 
+
+import { FormGroup, FormBuilder, Validators, FormControl, AbstractControl } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -15,7 +16,6 @@ import {FormGroup, FormBuilder, Validators, FormControl, AbstractControl} from '
 export class LoginPage implements OnInit {
 
   user: User = new User();
-
   ionicForm: any;
 
   constructor(
@@ -23,7 +23,8 @@ export class LoginPage implements OnInit {
     private modalCtrl: ModalController,
     private autSvc: AutService,
     private menuService: MenuServiceService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private loadCtrl: LoadingController
   ) { }
 
   ngOnInit() {
@@ -34,9 +35,11 @@ export class LoginPage implements OnInit {
     this.autSvc.onLogin(this.user).then((user:any)=>{
       if(user!=null && user.code ==undefined){
         console.log('Successfully logged in!');
+        this.loadCtrl.dismiss();
         this.router.navigate(['/main/presupuesto']);
       }
       else{
+        this.loadCtrl.dismiss();
         if(user.code){
           if(user.code=='auth/wrong-password' || user.code =='auth/invalid-email' || user.code=='auth/argument-error'){
             this.openModal(user);
@@ -60,9 +63,10 @@ export class LoginPage implements OnInit {
   }
 
   onRegister(){
-    this.menuService.setTitle("register");
+    this.menuService.setTitle("register")
     this.router.navigate(['/register']);
   }
+
 
   buildForm(){
     this.ionicForm = this.formBuilder.group({
@@ -76,6 +80,21 @@ export class LoginPage implements OnInit {
       this.ionicForm.controls[controlName].hasError(errorName) &&
       this.ionicForm.controls[controlName].touched;
   }   
+
+  async presentLoadingWithOptions() {
+    const loading = await this.loadCtrl.create({
+      //spinner: null,
+      //duration: 6000,
+      message: 'Iniciando sesion...',
+      translucent: true,
+      //cssClass: 'custom-class custom-loading',
+      backdropDismiss: true
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed with role:', role);
+  } 
 
   submitForm(){
     if(this.ionicForm.valid){

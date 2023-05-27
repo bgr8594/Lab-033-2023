@@ -14,9 +14,7 @@ import { ModalErrorComponent } from '../componentes/modal-error.component';
 export class RegisterPage implements OnInit {
 
   user: User = new User();
-
   formRegister : any;
-
   constructor(
     private autSvc: AutService,
     private router: Router,
@@ -47,6 +45,7 @@ export class RegisterPage implements OnInit {
     this.menuService.setTitle("login");
     this.router.navigate(["/login"]);
   }
+
 
   submitForm(){
     if(this.formRegister.valid){
