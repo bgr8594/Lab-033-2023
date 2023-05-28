@@ -13,8 +13,10 @@ const firebaseConfig = {
   storageBucket: "laboratorio-033-maof.appspot.com",
   messagingSenderId: "275190811056",
   appId: "1:275190811056:web:443e9ffb52b7e932c5ae75",
-  measurementId: "G-90T5PV26ZS"
-};
+  measurementId: "G-90T5PV26ZS",
+  apiKeyMaps :'AIzaSyDlWCVIkc3lrFnOG777LmZ6AQoMgCb3GGc'
+}
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
