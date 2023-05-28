@@ -5,7 +5,7 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../interface/user';
-import {getFirestore, collection, addDoc, getDocs, doc} from 'firebase/firestore';
+import { getFirestore, collection, addDoc, getDocs, doc, setDoc, deleteDoc } from 'firebase/firestore';
 import { Lugar } from './lugar';
 import {getDatabase} from "firebase/database";
 
@@ -22,7 +22,7 @@ export class AutService {
    public isLoged : any = false;
    auth: Auth;
   db=dbCloudFirestore;
-  
+
   constructor() {
     this.auth = getAuth(firebaseApp);
     onAuthStateChanged(this.auth, user => {
@@ -62,12 +62,27 @@ async getLugares(destinos: Lugar[]){
       let data: any =doc.data();
       let lugar: Lugar = new Lugar();
       lugar.nombre=data.nombre;
+      lugar.id = doc.id;
       console.log(doc.id);
       destinos.push(lugar);
     });
   })
-  .catch(error=>{
+  .catch((error: string)=>{
     console.log('Ocurrio un error en el guardardo:'+error);
   });
 }  
+    updateLugares(id: any, lugar: any): Promise<any> {
+      const docRef = doc(this.db, 'lugar', id);
+      const lugarAux = {
+        nombre: lugar.nombre,
+        ubicacion: { latitud: '', longitud: '' }
+      };
+
+      return setDoc(docRef, lugarAux);
+    }
+
+    deleteLugar(id: any): Promise<any> {
+      const docRef = doc(this.db, 'lugar', id);
+      return deleteDoc(docRef);
+    }
 }
