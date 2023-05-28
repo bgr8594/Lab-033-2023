@@ -14,8 +14,8 @@ import { DestinosApiPage } from './destinos-api.page';
     FormsModule,
     IonicModule,
     DestinosApiPageRoutingModule,
-    ReactiveFormsModule
+	ReactiveFormsModule
   ],
   declarations: [DestinosApiPage]
 })
-export class DestinosApiPageModule { }
+export class DestinosApiPageModule {}

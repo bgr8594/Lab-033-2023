@@ -1,6 +1,6 @@
 export interface Gasto {
-	monto: number;
+    monto:number;
     descripcion:string;
-    tipo: string;
-    id?: number;
+    tipo:string;
+    id?:number;
 }

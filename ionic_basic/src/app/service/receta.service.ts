@@ -1,82 +1,79 @@
 import { Injectable } from '@angular/core';
-import { Receta } from '../interface/receta';
-
+import {Receta} from '../interface/receta';
 @Injectable({
   providedIn: 'root'
 })
 export class RecetaService {
   recetas: Receta[]=[
     {
-      id: 1, 
-      nombre: 'Pizza', 
-      image: 'https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2017/04/pizzapepperoni0.jpg',
-      ingredientes: ["Queso","Salsa", "Peperoni", "Harina", "Especies","Sal"]
+      id: 1,
+      nombre: 'Pizza',
+      image: 'https://www.dondeir.com/wp-content/uploads/2019/08/pizza-hut-cadenas-de-pizza-cdmx.jpg',
+      ingredientes: ["queso", "salsa","peperoni", "harina","especies","sal"]
     },
     {
-      id: 2, 
-      nombre: 'Chop suey de pollo', 
-      image: 'https://images.aws.nestle.recipes/resized/b87c22a3bd854277162d8389432399f8_chop_suey_400_1200_600.jpg',
-      ingredientes: ['2 Cucharadas de Aceite de ajonjolí',
-      '1/2 Cebolla fileteada',
-      '1 Diente de Ajo picado finamente',
-      '400 Gramos de Pechuga de pollo cortada en cubos',
-      '1 Pimiento morrón rojo cortado en bastones',
-      '1 Taza de Brócoli cocido y cortado en ramilletes pequeños',
-      '1/2 Taza de Apio cortado en medias lunas',
-      '2 Zanahorias cortadas en tiras',
-      '2 Tazas de Germen de soya',
-      '1 Calabaza cortada en tiras',
-      '1 Cucharada de Sal con ajo en polvo',
-      '5 Cucharadas de Salsa de Soya MAGGI']
+      id: 2,
+      nombre: 'Chop suey de pollo',
+      image: 'https://cdn7.kiwilimon.com/brightcove/6516/6516.jpg',
+      ingredientes: ['2 cucharadas de aceite de ajonjoli',
+    '1/2 cebolla fileteada',
+  '1 diente de ajo picado finamente',
+'400 gramos de pechuga de pollo cortada en cubos',
+'1 Pimiento morron rojo cortado en bastones',
+'1 Taza de brocoli cocido y cortado en ramilletes pequeños',
+'1/2 Taza de apio cortado en medias lunas',
+'2 Zanahorias cortadas en tiras',
+'2 Tazas de germen de soya',
+'1 Calabaza cortada en tiras',
+'1 Cucharada de sal con ajo en polvo',
+'5 Cucharadas de salsa de soya']
     },
     {
-      id: 3, 
-      nombre: 'Pollo a la mexicana', 
-      image: 'https://d1uz88p17r663j.cloudfront.net/resized/08d45a55fe49e611abde012a9b72d8bb_POLLO_A_LA_MEXICANA_150_1200_600.jpg',
-      ingredientes: [
-        '1/2 Cebolla asada'
-        ,'2 Dientes de Ajo asados'
-        ,'4 Jitomates asados'
-        ,'1/2 Taza de Agua'
-        ,'2 Cubos de Concentrado de Tomate con Pollo CONSOMATE'
-        ,'2 Cucharadas de Aceite de maíz'
-        ,'1/2 Cebolla fileteada'
-        ,'5 Muslos o piernas de pollo cocidos'
-        ,'3 Jitomates cortados en cubos pequeños'
-        ,'2 Chiles jalapeño cortados en tiras'
-        ,'2 Ramitas de Cilantro fresco desinfectadas y picadas finamente'
+      id: 3,
+      nombre: 'Pollo a la mexicana',
+      image: 'https://assets.unileversolutions.com/recipes-v2/230090.jpg',
+      ingredientes:[
+        '1/2 Cebolla asada',
+        '2 Dientes de ajo asados',
+        '4 Jitomates asados',
+        '1/2 Taza de agua',
+        '2 Cubos de concentrado de tomate con pollo',
+        '2 Cucharadas de aceite de maiz',
+        '1/2 Cebolla fileteada',
+        '5 muslos o piernas de pollo cocidos',
+        '3 Jitomates cortados en cubos pequeños',
+        '2 chiles jalapeño cortados en tiras',
+        '2 ramitas de cilantro'
       ]
     },
     {
-      id: 4, 
-      nombre: 'Paletas de fresa con chamoy', 
-      image: 'https://images.aws.nestle.recipes/resized/f1b3167c3cff6274361a3f7a87974be2_paletas_de_fresa_con_chamoy_1200_600.jpg',
+      id: 4,
+      nombre: 'Paletas de fresa con chamoy',
+      image: 'https://www.laylita.com/recetas/wp-content/uploads/Paletas-caseras-de-fresa-o-frutilla.jpg',
       ingredientes: [
-        '2 Tazas de Fresas congeladas'
-        ,'1 1/2 Tazas de Agua'
-        ,'1/2 Taza de Azúcar'
-        ,'8 Vasos de plástico (4 oz c/u)'
-        ,'8 Vasos de plástico (1 oz c/u)'
-        ,'8 Palitos de madera para paleta'
-        ,'1/2 Taza de Concentrado de jamaica'
-        ,'4 Cucharadas de Chile con limón en polvo'
-        ,'1 Cucharada de Jugo MAGGI'
-        ,'1/4 Taza de Chamoy líquido'
-
+        '2 Tazas de fresas congeladas',
+        '1 1/2 Tazas de agua',
+        '1/2 Tazas de azucar',
+        '8 Vasos de plastico (4oz c/u)',
+        '8 Vasos de plastico (1oz c/u)',
+        '8 Palitos de madera para paleta',
+        '1/2 Taza de concentrado de jamaica',
+        '4 Cucharadas de chile con limon en polvo',
+        '1 Cucharada de jugo Maggi',
+        '1/4 Taza de chamoy liquido'
       ]
     }
   ];
-  constructor() { }
 
+  constructor() { }
   getReceta(idReceta: number){
-    return {...this.recetas.find(
-      (receta: Receta) =>{
-        return receta.id ===idReceta
+    return{...this.recetas.find(
+      (receta:Receta)=>{
+        return receta.id===idReceta
       }
     )};
   }
-
   getRecetas(){
-    return [...this.recetas];
+    return[...this.recetas];
   }
 }

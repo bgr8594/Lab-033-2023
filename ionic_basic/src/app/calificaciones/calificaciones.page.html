@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Calificaciones
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="altaCalificacion(form.value)" #form="ngForm">
+    <ion-item>
+      <ion-label>Materia</ion-label>
+      <ion-input ngModel name="materia" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Calificación</ion-label>
+      <ion-input type="number" ngModel name="calificacion" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Aprobado/Reprobado</ion-label>
+      <ion-checkbox ngModel name="aprobado"></ion-checkbox>
+    </ion-item>
+
+    <div class="ion-padding">
+      <ion-button expand="full" type="submit" [disabled]="!form.valid">Agregar</ion-button>
+    </div>
+  </form>
+
+  <ion-list>
+    <ion-item *ngFor="let calificacion of calificaciones">
+      <ion-label>{{ calificacion.materia }}</ion-label>
+      <ion-label>{{ calificacion.calificacion }}</ion-label>
+      <ion-label>{{ calificacion.aprobado ? 'Aprobado' : 'Reprobado' }}</ion-label>
+
+      <ion-button (click)="bajaCalificacion(calificacion)" color="danger" slot="end">
+        Borrar
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
