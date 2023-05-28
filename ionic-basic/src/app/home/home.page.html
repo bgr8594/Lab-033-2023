@@ -1,15 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Practica #2 Mario Alberto Ordaz Flores 1994083
+      Blank
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <br>
-  <ion-button routerLink="/alumnos">
-    Click Aquí Para Ir Hacia La pagina
-  </ion-button>
-
+  <ion-button size="large" (click)="onLogout()">Logout</ion-button>
+  <ion-button *ngIf="isLoged" size="large" routerLink="/admin">Admin</ion-button>
 </ion-content>
