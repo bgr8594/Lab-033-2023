@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AutService } from './aut.service';
-
+import{AutService} from './aut.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,11 +18,11 @@ export class AutGuardGuard implements CanActivate {
         return false;
       }
   }
-  
   constructor(
     private authService: AutService,
     private router: Router
   ){
-
+    
   }
+  
 }

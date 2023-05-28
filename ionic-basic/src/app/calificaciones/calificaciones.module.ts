@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SegmentButtonPageRoutingModule } from './segment-button-routing.module';
+import { CalificacionesPageRoutingModule } from './calificaciones-routing.module';
 
-import { SegmentButtonPage } from './segment-button.page';
+import { CalificacionesPage } from './calificaciones.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SegmentButtonPageRoutingModule
+    CalificacionesPageRoutingModule
   ],
-  declarations: [SegmentButtonPage]
+  declarations: [CalificacionesPage]
 })
-export class SegmentButtonPageModule {}
+export class CalificacionesPageModule {}

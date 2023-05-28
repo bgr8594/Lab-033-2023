@@ -3,9 +3,10 @@ import { environment } from 'src/environments/environment';
 import { initializeApp } from "firebase/app"
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { User } from 'src/app/interface/user';
+import { User } from '../interface/user';
 import { getFirestore, collection, addDoc, getDocs, doc, setDoc, deleteDoc } from 'firebase/firestore';
 import { Lugar } from '../interface/lugar';
+import { getDatabase } from "firebase/database";
 
 const firebaseApp = initializeApp(environment.firebaseConfig);
 
@@ -42,8 +43,8 @@ export class AutService {
     //register
     onRegister(user: User): Promise<any>{
       return  createUserWithEmailAndPassword(this.auth, user.email, user.password);
-  }
-  
+  }   
+
   async altaLugar(lugar: Lugar){
     const lugarTemp: any ={
       nombre:lugar.nombre,
@@ -70,7 +71,7 @@ export class AutService {
       });
     })
     .catch(error=>{
-      console.log('Ocurrio un error en el guardardo:'+error);
+      console.log('Ocurrio un erro en el guardardo:'+error);
     });
   } 
 
@@ -88,5 +89,5 @@ export class AutService {
     const docRef = doc(this.db, 'lugar', id);
     return deleteDoc(docRef);
   }  
-  
+
 }

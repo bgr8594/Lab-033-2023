@@ -62,11 +62,6 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
-.angular/*
-node_modules/*
-www/*
-android/*
-ios/
 
 # System files
 .DS_Store

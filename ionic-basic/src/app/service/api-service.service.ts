@@ -8,7 +8,7 @@ import { Lugar } from '../interface/lugar';
 })
 export class ApiService {
 
-  private basePath = 'http://localhost:8100/post';
+  private basePath = 'http://localhost:8080/post';
 
   constructor(
     private http: HttpClient
