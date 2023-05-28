@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Filesystem, Directory } from '@capacitor/filesystem';
 import { Preferences } from '@capacitor/preferences';
-import { UserPhoto } from '../interface/user-photo';
+import { UserPhoto } from '../interface/photo';
 import { Platform } from '@ionic/angular';
 import { Capacitor } from '@capacitor/core';
 
@@ -16,7 +16,7 @@ export class PhotoService {
 
   constructor(
     private platform: Platform
-    ) { }
+  ) { }
 
   public async addNewToGallery() {
     // Take a photo
@@ -26,48 +26,48 @@ export class PhotoService {
       quality: 100 // highest quality (0 to 100)
     });
 
-// Save the picture and add it to photo collection
-  const savedImageFile = await this.savePicture(capturedPhoto);
+    // Save the picture and add it to photo collection
+    const savedImageFile = await this.savePicture(capturedPhoto);
 
-    this.photos.unshift(savedImageFile);    
+    this.photos.unshift(savedImageFile);
     Preferences.set({
       key: this.PHOTO_STORAGE,
       value: JSON.stringify(this.photos),
-    });    
+    });
   }
 
-  private async savePicture(photo: Photo) { 
-      // Convert photo to base64 format, required by Filesystem API to save
-      const base64Data = await this.readAsBase64(photo);
+  private async savePicture(photo: Photo) {
+    // Convert photo to base64 format, required by Filesystem API to save
+    const base64Data = await this.readAsBase64(photo);
 
-      // Write the file to the data directory
-      const fileName = new Date().getTime() + '.jpeg';
-      const savedFile = await Filesystem.writeFile({
-        path: fileName,
-        data: base64Data,
-        directory: Directory.Data
-      });
+    // Write the file to the data directory
+    const fileName = new Date().getTime() + '.jpeg';
+    const savedFile = await Filesystem.writeFile({
+      path: fileName,
+      data: base64Data,
+      directory: Directory.Data
+    });
 
-      if (this.platform.is('hybrid')) {
-        // Display the new image by rewriting the 'file://' path to HTTP
-        // Details: https://ionicframework.com/docs/building/webview#file-protocol
-        return { // Implementacion dentro del celular
-          filepath: savedFile.uri,
-          webviewPath: Capacitor.convertFileSrc(savedFile.uri)
-        };
-      }
-      else {
-        // Implementacion en el navegador en pc
-        // Use webPath to display the new image instead of base64 since it's
-        // already loaded into memory
-        return {
-          filepath: fileName,
-          webviewPath: photo.webPath
-        };
-      }
-  }  
+    if (this.platform.is('hybrid')) {
+      // Display the new image by rewriting the 'file://' path to HTTP
+      // Details: https://ionicframework.com/docs/building/webview#file-protocol
+      return { // Implementacion dentro del celular
+        filepath: savedFile.uri,
+        webviewPath: Capacitor.convertFileSrc(savedFile.uri)
+      };
+    }
+    else {
+      // Implementacion en el navegador en pc
+      // Use webPath to display the new image instead of base64 since it's
+      // already loaded into memory
+      return {
+        filepath: fileName,
+        webviewPath: photo.webPath
+      };
+    }
+  }
 
-  private async readAsBase64(photo: Photo| any) {
+  private async readAsBase64(photo: Photo | any) {
     // "hybrid" will detect Cordova or Capacitor
     if (this.platform.is('hybrid')) {
       // Read the file into base64 format
@@ -90,31 +90,31 @@ export class PhotoService {
     const reader = new FileReader();
     reader.onerror = reject;
     reader.onload = () => {
-        resolve(reader.result);
+      resolve(reader.result);
     };
     reader.readAsDataURL(blob);
   });
 
   public async loadSaved() {
-     // Retrieve cached photo array data
-     const photoList = await Preferences.get({ key: this.PHOTO_STORAGE });
-     this.photos = JSON.parse(photoList.value?photoList.value:'') || [];
+    // Retrieve cached photo array data
+    const photoList = await Preferences.get({ key: this.PHOTO_STORAGE });
+    this.photos = JSON.parse(photoList.value ? photoList.value : '') || [];
 
-     // Easiest way to detect when running on the web:
-     // “when the platform is NOT hybrid, do this”
-     if (!this.platform.is('hybrid')) {
-       // Display the photo by reading into base64 format
-       for (let photo of this.photos) {
-         // Read each saved photo's data from the Filesystem
-         const readFile = await Filesystem.readFile({
-             path: photo.filepath,
-             directory: Directory.Data
-         });
+    // Easiest way to detect when running on the web:
+    // “when the platform is NOT hybrid, do this”
+    if (!this.platform.is('hybrid')) {
+      // Display the photo by reading into base64 format
+      for (let photo of this.photos) {
+        // Read each saved photo's data from the Filesystem
+        const readFile = await Filesystem.readFile({
+          path: photo.filepath,
+          directory: Directory.Data
+        });
 
-         // Web platform only: Load the photo as base64 data
-         photo.webviewPath = `data:image/jpeg;base64,${readFile.data}`;
-       }
-     }    
+        // Web platform only: Load the photo as base64 data
+        photo.webviewPath = `data:image/jpeg;base64,${readFile.data}`;
+      }
+    }
   }
 
   public async deletePicture(photo: UserPhoto, position: number) {
@@ -133,5 +133,5 @@ export class PhotoService {
       path: filename,
       directory: Directory.Data,
     });
-  } 
+  }
 }

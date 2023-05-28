@@ -19,4 +19,4 @@ import { GooglemapsComponent } from '../componentes/googlemaps/googlemaps.compon
   ],
   declarations: [DestinosPage, GooglemapsComponent]
 })
-export class DestinosPageModule {}
+export class DestinosPageModule { }

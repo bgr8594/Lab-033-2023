@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Gasto } from '../interface/gasto';
- import { GastoService } from '../service/gasto.service';
+import { GastoService } from '../service/gasto.service'
 
 @Component({
   selector: 'app-presupuesto',
@@ -8,6 +8,7 @@ import { Gasto } from '../interface/gasto';
   styleUrls: ['./presupuesto.page.scss'],
 })
 export class PresupuestoPage implements OnInit {
+  
   public gastos: string[]=['Directos','Fijos', 'Variables'];
   public selectedValue: any;
   public monto: number=0;
@@ -22,9 +23,8 @@ export class PresupuestoPage implements OnInit {
   ngOnInit() {
   }
 
-
   customPopoverOptions: any = {
-    header: 'Seleccion de gasots',
+    header: 'Seleccion de gastos',
     subHeader: 'Seleccione el tipo de gasto',
     message: 'Solo seleccione un tipo de gasto'
   };
@@ -50,7 +50,7 @@ export class PresupuestoPage implements OnInit {
     }
     else{
       this.errResultados = 'danger';
-      this.resultados ="No a completado los campos del formulario";
+      this.resultados ="No ha completado los campos del formulario";
     }
   }
 
@@ -58,5 +58,6 @@ export class PresupuestoPage implements OnInit {
     this.gastosService.borrarGasto(gasto);
     this.gastosList = this.gastosService.getGastos();
   }
+
 
 }

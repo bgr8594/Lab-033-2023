@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserPhoto } from '../interface/user-photo';
+import { UserPhoto } from '../interface/photo';
 import { PhotoService } from '../service/photo.service';
 import { ActionSheetController } from '@ionic/angular';
 
@@ -13,15 +13,17 @@ export class GaleriaPage implements OnInit {
   constructor(
     public photoService: PhotoService,
     public actionSheetController: ActionSheetController
-  ) { }
+  ) {
+
+  }
 
   async ngOnInit() {
     await this.photoService.loadSaved();
   }
 
-  async ionViewWillEnter(){
+  async ionViewWillEnter() {
     await this.photoService.loadSaved();
-  }  
+  }
 
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
@@ -43,10 +45,9 @@ export class GaleriaPage implements OnInit {
         role: 'cancel',
         handler: () => {
           // Nothing to do, action sheet is automatically closed
-         }
+        }
       }]
     });
     await actionSheet.present();
-  }  
-
+  }
 }

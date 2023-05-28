@@ -3,31 +3,30 @@ import { environment } from 'src/environments/environment';
 
 declare var google: any;
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class GooglemapsService {
   apikey: string = environment.apiKeyMaps;
   mapsloaded: boolean = false;
-  
-  init(renderer: any, document: any){
+
+  init(renderer: any, document: any) {
 
     return new Promise((resolve, reject) => {
-      if(this.mapsloaded){
+      if (this.mapsloaded) {
         console.log('google is preview loaded');
         resolve(true);
         return;
       }
 
-      const script =renderer.createElement('script');
-      script.id ="googleMaps";
+      const script = renderer.createElement('script');
+      script.id = "googleMaps";
 
-      window.mapInit= () =>{
+      window.mapInit = () => {
         this.mapsloaded = true;
-        if(google){
+        if (google) {
           console.log('google is loaded');
-        } else{
+        } else {
           console.log('google is not defined');
         }
 
@@ -36,9 +35,9 @@ export class GooglemapsService {
       };
 
 
-      if(this.apikey){
-        script.src = 'https://maps.googleapis.com/maps/api/js?key='+this.apikey+'&callback=mapInit';
-      } else{
+      if (this.apikey) {
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=' + this.apikey + '&callback=mapInit';
+      } else {
         script.src = 'https://maps.googleapis.com/maps/api/js?callback=mapInit';
       }
       renderer.appendChild(document.body, script);
