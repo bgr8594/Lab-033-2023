@@ -4,20 +4,24 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { AlumnosPageRoutingModule } from './alumnos-routing.module';
+import { CalificacionesPageRoutingModule } from './calificaciones-routing.module';
 
-import { AlumnosPage } from './alumnos.page';
+import { CalificacionesPage } from './calificaciones.page';
 
-import { DatosAlumnoComponent } from '../componentes/datos-alumno.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AlumnosPageRoutingModule,
+    CalificacionesPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [AlumnosPage, DatosAlumnoComponent]
+  declarations: [CalificacionesPage]
 })
-export class AlumnosPageModule {}
+export class CalificacionesPageModule {
+
+  
+
+}

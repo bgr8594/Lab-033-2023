@@ -65,7 +65,12 @@ const routes: Routes = [
   {
     path: 'segment-button',
     loadChildren: () => import('./segment-button/segment-button.module').then( m => m.SegmentButtonPageModule)
-  }   
+  },   
+  {
+    path: 'calificaciones',
+    loadChildren: () => import('./calificaciones/calificaciones.module').then( m => m.CalificacionesPageModule)
+  }
+  
 ];
 
 @NgModule({

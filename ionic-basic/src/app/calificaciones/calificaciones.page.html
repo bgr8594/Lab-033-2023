@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calificaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list [formGroup]="formulario" *ngIf="!califSrv.editMode">
+    <ion-list [formGroup]="formulario">
+      <ion-item>
+        <ion-label position="floating">Materia</ion-label>
+        <ion-input formControlName="materia"></ion-input>
+        <a *ngIf="formulario.get('materia').touched && formulario.get('materia').invalid">
+          La materia es requerida.
+        </a>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Calificación</ion-label>
+        <ion-input formControlName="calificacion"></ion-input>
+        <a *ngIf="formulario.get('calificacion').touched && formulario.get('calificacion').invalid">
+          La calificación es requerida y debe ser un número entre 0 y 100.
+        </a>
+      </ion-item>
+      <ion-item>
+        <ion-label>¿Aprobado?</ion-label>
+        <ion-checkbox formControlName="aprobado"></ion-checkbox>
+      </ion-item>
+    </ion-list>  
+
+    <ion-button expand="full" (click)="califSrv.altaCalificacion(formulario)" [disabled]="!formulario.valid">Alta</ion-button>
+
+  </ion-list>
+
+    <!-- Formulario de edición de calificación -->
+
+    <ion-list [formGroup]="formularioEdicion" *ngIf="califSrv.editMode">
+      <ion-item>
+        <ion-label position="floating">Materia</ion-label>
+        <ion-input formControlName="materia"></ion-input>
+        <a *ngIf="formulario.get('materia').touched && formulario.get('materia').invalid">
+          La materia es requerida.
+        </a>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Calificación</ion-label>
+        <ion-input formControlName="calificacion"></ion-input>
+        <a *ngIf="formulario.get('calificacion').touched && formulario.get('calificacion').invalid">
+          La calificación es requerida y debe ser un número entre 0 y 100.
+        </a>
+      </ion-item>
+      <ion-item>
+        <ion-label>¿Aprobado?</ion-label>
+        <ion-checkbox formControlName="aprobado"></ion-checkbox>
+      </ion-item>
+
+      <ion-button expand="full" (click)="califSrv.actualizarCalificacion(formularioEdicion)" [disabled]="!formularioEdicion.valid">Actualizar</ion-button>
+
+    </ion-list>  
+  
+
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3"><b>Materia</b></ion-col>
+      <ion-col size="3"><b>Calificación</b></ion-col>
+      <ion-col size="3"><b>¿Aprobado?</b></ion-col>
+
+      <ion-col size="3">Herramientas</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let calificacion of califSrv.calificaciones">
+      <ion-col size="3">{{ calificacion.materia }}</ion-col>
+      <ion-col size="3">{{ calificacion.calificacion }}</ion-col>
+      <ion-col size="3">{{ calificacion.aprobado }}</ion-col>
+      <ion-col size="3">
+        <ion-button size="small" (click)="califSrv.editarCalificacion(calificacion)">Editar</ion-button>
+        <ion-button size="small" (click)="califSrv.borrarCalificacion(calificacion)">Borrar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+

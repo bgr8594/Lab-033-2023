@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Alumno } from '../interface/alumno';
 import { AlumnoService } from '../service/alumno.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-alumnos',

@@ -72,8 +72,10 @@ export class FloatMenuComponent implements OnInit, OnDestroy {
             nombre: 'Turismo', enlace: '/main/destinos',
             icono: 'airplane'
           },
-          { nombre: 'Turismo-api',enlace:'main/destinos-api',
-            icono:'airplane'},
+          {
+            nombre: 'Turismo-api', enlace: 'main/destinos-api',
+            icono: 'airplane'
+          },
           {
             nombre: 'Receteas', enlace: '/main/receta',
             icono: 'restaurant-outline'
@@ -94,8 +96,14 @@ export class FloatMenuComponent implements OnInit, OnDestroy {
             nombre: 'logout', enlace: '/home',
             icono: 'log-out-outline'
           },
-          {nombre: 'segment-button',enlace:'/segment-button',
-          icono:'bookmarks-outline'}, 
+          {
+            nombre: 'segment-button', enlace: '/segment-button',
+            icono: 'bookmarks-outline'
+          },
+          {
+            nombre: 'calificaciones', enlace: '/calificaciones',
+            icono: 'bookmarks-outline'
+          },
         ];
 
       }
