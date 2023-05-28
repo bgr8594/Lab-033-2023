@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>Calificaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+      <ion-item>
+          <ion-label>
+              Materia:
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="materia" placeholder="Nombre de la materia"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>
+             Calificacion:
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="calificacion" placeholder="Ingrese la calificacion"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-button type="button" (click)="guardar()">{{estado}}</ion-button>
+          <ion-button *ngIf="estado==='actualizar'" type="button" (click)="cancelar()">Cancelar</ion-button>
+          <ion-text *ngIf="error" color="danger">
+              <h6>Debe ingresar el nombre de la materia y la calificacion para {{estado}}</h6>
+          </ion-text>
+  </ion-item>
+  </ion-list>
+  </ion-content>
